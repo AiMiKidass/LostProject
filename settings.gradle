@@ -1,0 +1,2 @@
+include ':app', ':JPushExample'
+project(':JPushExample').projectDir = new File('JPushExample(742282)')
