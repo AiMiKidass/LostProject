@@ -14,7 +14,9 @@
         style="@style/base_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="onclick"/>
+        android:background="@drawable/littlepay_shape_image_empty"
+        android:text="onclick 60秒"
+        android:textColor="@color/blue"/>
 
     <Button
         android:id="@+id/btn_showdialog"
@@ -22,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="btn_showdialog"/>
+
 
     <EditText
         android:id="@+id/et_input"
@@ -39,13 +42,17 @@
         android:text="5000"
         android:textSize="50sp"/>
 
+    <ImageView
+        android:id="@+id/iv_qr"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:background="@drawable/img_qrcode"/>
+
     <LinearLayout
         android:id="@+id/ll_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:orientation="vertical">
-
-
     </LinearLayout>
 </LinearLayout>

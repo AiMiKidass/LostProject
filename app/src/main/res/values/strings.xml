@@ -45,4 +45,14 @@
     <string name="dialog_cache">RxJava 中有一个较少被人用到的类叫做 Subject，它是一种『既是 Observable，又是 Observer』的东西，因此可以被用作中间件来做数据传递。例如，可以用它的子类 BehaviorSubject 来制作缓存。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;.subscribe(<b>behaviorSubject</b>); // 网络数据会被缓存\n\n<b>behaviorSubject.subscribe(observer);</b> // 之前的缓存将直接送达 observer\n\n(详见本项目源码)</string>
     <string name="no_result">对不起,没有搜索到相关数据!</string>
 
+    <!--zxing qrcode 二维码扫描-->
+    <string name="str_scan_title">扫一扫</string>
+    <string name="str_open_light">开启闪光灯</string>
+    <string name="str_close_light">关闭闪光灯</string>
+    <string name="str_scan_hint">取景框对准二维码, 即可自动扫描</string>
+
+
+    <string name="test001">你好!我叫${app_name}</string>
+
+
 </resources>

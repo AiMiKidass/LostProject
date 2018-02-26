@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JPushExample(742282)/JPushExample.iml" filepath="$PROJECT_DIR$/JPushExample(742282)/JPushExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/LostProject.iml" filepath="$PROJECT_DIR$/LostProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NewTestProject.iml" filepath="$PROJECT_DIR$/NewTestProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

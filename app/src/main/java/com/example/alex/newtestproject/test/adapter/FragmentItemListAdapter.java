@@ -4,6 +4,7 @@ package com.example.alex.newtestproject.test.adapter;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.alex.newtestproject.R;
 import com.example.alex.newtestproject.test.XTestActivity;
@@ -22,7 +23,7 @@ public class FragmentItemListAdapter extends BaseAdapter<XTestActivity.FragmengI
 
     @Override
     public int getItemResource() {
-        return R.layout.item_button;
+        return R.layout.item_textview;
     }
 
     @Override
@@ -32,8 +33,8 @@ public class FragmentItemListAdapter extends BaseAdapter<XTestActivity.FragmengI
             return convertView;
         }
 
-        Button button = holder.getView(R.id.btn_button);
-        button.setText(item.getName());
+        TextView textview = holder.getView(R.id.tv_text);
+        textview.setText(item.getName());
 
         return convertView;
     }

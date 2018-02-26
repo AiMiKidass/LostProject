@@ -2,12 +2,15 @@ package com.example.alex.newtestproject.test;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.alex.newtestproject.R;
 import com.example.alex.newtestproject.test.adapter.FragmentItemListAdapter;
 import com.example.alex.newtestproject.test.base.BaseFragment;
 import com.example.alex.newtestproject.test.fragment.Test1Fragment;
+import com.example.alex.newtestproject.test.fragment.Test2Fragment;
 
 import java.util.ArrayList;
 
@@ -37,8 +40,31 @@ public class XTestActivity extends BaseActivity {
             fragmengItems.add(item);
         }
         gvContent.setAdapter(new FragmentItemListAdapter(context, fragmengItems));
+        gvContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switchIndexButtonEvent(position, id);
+            }
+        });
 
-        addFragment(new Test1Fragment());
+        addFragment(new Test2Fragment());
+    }
+
+    private void switchIndexButtonEvent(int position, long id) {
+        switch (position) {
+            case 0: {
+                addFragment(new Test1Fragment());
+                break;
+            }
+            case 1: {
+                addFragment(new Test2Fragment());
+                break;
+            }
+            case 2: {
+                addFragment(new Test1Fragment());
+                break;
+            }
+        }
     }
 
     private void addFragment(BaseFragment fragment) {
