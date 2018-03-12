@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.alex.newtestproject.datecul.DateCulActivity">
+
+    <TextView
+        android:id="@+id/tv_date"
+        style="@style/base_textview"
+        android:layout_height="100px"
+        android:layout_marginTop="15px"
+        android:text="今天是:"
+        android:textSize="50px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15px"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            style="@style/base_textview"
+            android:layout_height="100px"
+            android:text="请选择今天是什么班"
+            android:textSize="50px"/>
+
+        <Spinner
+            android:id="@+id/sp_duty"
+            android:background="@color/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_select_date"
+        style="@style/base_textview"
+        android:layout_height="100px"
+        android:layout_marginTop="15px"
+        android:background="@color/blue"
+        android:singleLine="false"
+        android:text="请选择日期"
+        android:textSize="50px"/>
+
+    <TextView
+        android:id="@+id/tv_duty"
+        style="@style/base_textview"
+        android:layout_height="100px"
+        android:layout_marginTop="15px"
+        android:text="该日期什么班?"
+        android:textSize="50px"/>
+</LinearLayout>

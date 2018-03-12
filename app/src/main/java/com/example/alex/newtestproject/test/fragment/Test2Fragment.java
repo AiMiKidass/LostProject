@@ -5,13 +5,11 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.alex.newtestproject.R;
-import com.example.alex.newtestproject.test.XTestActivity;
 import com.example.alex.newtestproject.test.base.BaseAdapter;
 import com.example.alex.newtestproject.test.base.BaseFragment;
 
@@ -32,8 +30,12 @@ public class Test2Fragment extends BaseFragment {
 
 //    @BindView(R.id.lv_content)
     ListView mListView;
+
+
     @BindView(R.id.srl_content)
-    private SwipeRefreshLayout mRootSrlView;
+    SwipeRefreshLayout mRootSrlView;
+
+
     private ArrayList<String> mDataSource;
     private TestDataAdapter mAdapter;
 

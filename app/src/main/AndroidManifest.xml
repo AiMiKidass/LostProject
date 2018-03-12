@@ -28,12 +28,14 @@
             android:name="com.amap.api.v2.apikey"
             android:value="26a285d82b141992a6dae44551d39807"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".datecul.DateCulActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".gaode.LocationSourceActivity">
         </activity>
