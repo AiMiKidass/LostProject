@@ -1,2 +1,1 @@
-include ':app', ':JPushExample'
-project(':JPushExample').projectDir = new File('JPushExample(742282)')
+include ':app', ':okserver', ':okserver', ':okserver', ':exfilepicker'

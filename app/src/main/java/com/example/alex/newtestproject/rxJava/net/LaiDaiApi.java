@@ -5,7 +5,6 @@ import com.example.alex.newtestproject.rxJava.fragment.bean.LoginVo;
 import com.example.alex.newtestproject.rxJava.fragment.bean.StartPage;
 import com.example.alex.newtestproject.rxJava.fragment.view.GankBeautyResult;
 
-import java.util.List;
 import java.util.Map;
 
 import retrofit2.http.GET;
@@ -13,7 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
-import rx.Observable;
+import io.reactivex.Observable;
 
 /**
  * Created by Administrator on 2017/6/13.

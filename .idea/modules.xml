@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JPushExample(742282)/JPushExample.iml" filepath="$PROJECT_DIR$/JPushExample(742282)/JPushExample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LostProject.iml" filepath="$PROJECT_DIR$/LostProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LostProject.iml" filepath="$PROJECT_DIR$/.idea/LostProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exfilepicker/exfilepicker.iml" filepath="$PROJECT_DIR$/exfilepicker/exfilepicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okserver/okserver.iml" filepath="$PROJECT_DIR$/okserver/okserver.iml" />
     </modules>
   </component>
 </project>

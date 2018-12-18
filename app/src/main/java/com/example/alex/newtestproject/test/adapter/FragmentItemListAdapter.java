@@ -3,11 +3,10 @@ package com.example.alex.newtestproject.test.adapter;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.alex.newtestproject.R;
-import com.example.alex.newtestproject.test.XTestActivity;
+import com.example.alex.newtestproject.test.XTestActivityXTest;
 import com.example.alex.newtestproject.test.base.BaseAdapter;
 
 import java.util.List;
@@ -16,8 +15,8 @@ import java.util.List;
  * 子元素Button
  */
 
-public class FragmentItemListAdapter extends BaseAdapter<XTestActivity.FragmengItem> {
-    public FragmentItemListAdapter(Context context, List<XTestActivity.FragmengItem> data) {
+public class FragmentItemListAdapter extends BaseAdapter<XTestActivityXTest.FragmengItem> {
+    public FragmentItemListAdapter(Context context, List<XTestActivityXTest.FragmengItem> data) {
         super(context, data);
     }
 
@@ -28,7 +27,7 @@ public class FragmentItemListAdapter extends BaseAdapter<XTestActivity.FragmengI
 
     @Override
     public View getItemView(int position, View convertView, ViewHolder holder) {
-        XTestActivity.FragmengItem item = getItem(position);
+        XTestActivityXTest.FragmengItem item = getItem(position);
         if (item == null) {
             return convertView;
         }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/popup_anima"
+        android:layout_width="250dp"
+        android:layout_height="133dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingTop="27dp">
+
+        <com.example.alex.newtestproject.ui.view.IconFontTextView
+            android:id="@+id/view_red_alert_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/gary"
+            android:textColor="@color/red"
+            android:text="&#xe64d;"
+            android:gravity="center"
+            android:textSize="30dp"/>
+
+        <TextView
+            style="@style/AppBaseTextview"
+            android:layout_toRightOf="@id/view_red_alert_logo"
+            android:singleLine="false"
+            android:text="无权访问"
+            />
+
+        <Button
+            android:id="@+id/act_close_button"
+            android:layout_width="146dp"
+            android:layout_height="29dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:textColor="@color/white"
+            android:text="确\t定"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -14,4 +14,20 @@
     <dimen name="width_title_leftImg">30dp</dimen>
     <dimen name="title_text_size">15sp</dimen>
     <dimen name="offset_title">5dp</dimen>
+
+    <dimen name="common_title_bar_height">56dp</dimen>
+    <!-- 标题文本字号 -->
+    <dimen name="titleTextSize">16dp</dimen>
+    <!-- 正文文本字号 -->
+    <dimen name="bodyTextSize">15dp</dimen>
+    <!-- 副文本字号 -->
+    <dimen name="subTextSize">14dp</dimen>
+    <!-- 提示文本字号 -->
+    <dimen name="hinttTextSize">13dp</dimen>
+    <!-- 提示文本字号 -->
+    <dimen name="smallTextSize">12dp</dimen>
+    <!-- 提示文本字号 -->
+    <dimen name="smallTextSize2">11dp</dimen>
+    <!-- 身份文本字号 -->
+    <dimen name="toosmallTextSize">8dp</dimen>
 </resources>

@@ -8,14 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.alex.newtestproject.gaode.LocationSourceActivity;
 
 public class ListItemActivity extends AppCompatActivity {
 
     public ListView list;
 
     private MineItem[] mDataSoucre = new MineItem[]{
-            new MineItem("小蓝点定位", LocationSourceActivity.class),
     };
 
     @Override

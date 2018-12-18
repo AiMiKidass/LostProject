@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_marginTop="@dimen/dp_10"
+                tools:ignore="HardcodedText,UnknownIdInLayout,RtlHardcoded,RtlSymmetry">
+
+    <TextView
+        android:id="@+id/view_item_title"
+        style="@style/AppBaseTextview"
+        android:layout_marginLeft="3dp"
+        android:text="示例"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        />
+
+
+</RelativeLayout>

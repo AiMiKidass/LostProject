@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.alex.newtestproject.ui.activity.ManyLittleCommonActivity">
+
+    <!-- https://blog.csdn.net/asfasdfagfdjhgkjh/article/details/78338891 -->
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:alignContent="flex_start"
+        app:alignItems="center"
+        app:dividerDrawable="@drawable/divider_shape"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start"
+        app:showDivider="beginning|middle"
+        >
+
+        <TextView
+            android:id="@+id/act_example01"
+            style="@style/MineFlexboxLayoutItem"
+            android:text="实例01"
+            app:layout_alignSelf="flex_start"
+            />
+
+        <TextView
+            style="@style/MineFlexboxLayoutItem"
+            android:text="影视天堂"
+            app:layout_alignSelf="flex_start"
+            app:layout_flexGrow="1"
+            />
+
+        <TextView
+            style="@style/MineFlexboxLayoutItem"
+            android:text="美食"
+            app:layout_alignSelf="flex_start"
+            app:layout_flexGrow="1"
+            />
+
+        <TextView
+            style="@style/MineFlexboxLayoutItem"
+            android:text="漫画.手绘"
+            app:layout_alignSelf="flex_start"
+            app:layout_flexGrow="1"
+            />
+
+        <TextView
+            style="@style/MineFlexboxLayoutItem"
+            android:text="广告圈"
+            app:layout_alignSelf="flex_start"
+            />
+
+        <TextView
+            style="@style/MineFlexboxLayoutItem"
+            android:text="旅行在路上"
+            app:layout_alignSelf="flex_start"
+            />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <SeekBar
+        android:id="@+id/timeline"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="100"
+        android:maxHeight="30.0dip"
+        android:minHeight="30.0dip"
+        android:paddingEnd="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingStart="0dp"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@null" />
+
+</LinearLayout>

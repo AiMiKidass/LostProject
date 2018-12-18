@@ -1,6 +1,5 @@
 package com.example.alex.newtestproject.utils;
 
-
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Handler;
@@ -15,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alex.newtestproject.R;
+import com.example.alex.newtestproject.XApplication;
 
 
+@SuppressWarnings("ALL")
 public class ToastUtils {
     public final static int ONLY_TEXE = 1;
     public final static int TEXT_AND_IMAGE = 2;
@@ -28,14 +29,8 @@ public class ToastUtils {
     private static View view;
 
     public static void showToast(Context context, String msg) {
-//		if(toast == null){
-//			toast = Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT);
-//			toast.setGravity(Gravity.CENTER,0,0);
-//		}
-//		toast.setText(msg);
-//		toast.show();
         LayoutInflater inflater = LayoutInflater.from(context.getApplicationContext());
-        View view = inflater.inflate(R.layout.my_toast, null);
+        View view = inflater.inflate(R.layout.toast_global, null);
         TextView tv = (TextView) view.findViewById(R.id.tv);
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_right);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.pb);
@@ -45,7 +40,7 @@ public class ToastUtils {
             bigToast = new Toast(context.getApplicationContext());
         }
         bigToast.setGravity(Gravity.CENTER, 0, 0);
-        bigToast.setDuration(Toast.LENGTH_LONG);
+        bigToast.setDuration(Toast.LENGTH_SHORT);
         bigToast.setView(view);
         imageView.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
@@ -53,18 +48,12 @@ public class ToastUtils {
     }
 
     public static void showToast(Context context, int resId) {
-        showToast(context,context.getString(resId));
+        showToast(context, context.getString(resId));
     }
 
     public static void showToast(Context context, Spanned msg, int dur) {
-//		if(toast == null){
-//			toast = Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT);
-//			toast.setGravity(Gravity.CENTER,0,0);
-//		}
-//		toast.setText(msg);
-//		toast.show();
         LayoutInflater inflater = LayoutInflater.from(context.getApplicationContext());
-        View view = inflater.inflate(R.layout.my_toast, null);
+        View view = inflater.inflate(R.layout.toast_global, null);
         TextView tv = (TextView) view.findViewById(R.id.tv);
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_right);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.pb);
@@ -101,7 +90,7 @@ public class ToastUtils {
             wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         }
         view = View.inflate(context,
-                R.layout.my_toast, null);
+                R.layout.toast_global, null);
         TextView tv = (TextView) view.findViewById(R.id.tv);
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_right);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.pb);
@@ -120,8 +109,6 @@ public class ToastUtils {
         mParams.width = 400;
         // 修改完左上角对其,便于边界问题的处理
         mParams.gravity = Gravity.CENTER;
-//		mParams.x = SpUtils.getInt(getApplicationContext(), "mParams.x", 0);
-//		mParams.y = SpUtils.getInt(getApplicationContext(), "mParams.y", 0);
         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE //自定义的土司需要用户触摸
                 | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
@@ -143,7 +130,7 @@ public class ToastUtils {
             wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         }
         view = View.inflate(context,
-                R.layout.my_toast, null);
+                R.layout.toast_global, null);
         TextView tv = (TextView) view.findViewById(R.id.tv);
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_right);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.pb);
@@ -162,8 +149,6 @@ public class ToastUtils {
         mParams.width = 400;
         // 修改完左上角对其,便于边界问题的处理
         mParams.gravity = Gravity.CENTER;
-//		mParams.x = SpUtils.getInt(getApplicationContext(), "mParams.x", 0);
-//		mParams.y = SpUtils.getInt(getApplicationContext(), "mParams.y", 0);
         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE //自定义的土司需要用户触摸
                 | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
@@ -189,5 +174,9 @@ public class ToastUtils {
         if (wm != null) {
             wm.removeView(view);
         }
+    }
+
+    public static void showApplicationToastMessage(String message) {
+        showToast(XApplication.getInstance(), message);
     }
 }

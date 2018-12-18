@@ -1,7 +1,7 @@
 package com.example.alex.newtestproject.rxJava.data;
 
 
-import com.example.alex.newtestproject.App;
+import com.example.alex.newtestproject.XApplication;
 import com.example.alex.newtestproject.rxJava.fragment.view.Item;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,7 +21,7 @@ import java.util.List;
 public class Database {
     private static String DATA_FILE_NAME = "data.db";
 
-    File dataFile = new File(App.getInstance().getFilesDir(), DATA_FILE_NAME);
+    File dataFile = new File(XApplication.getInstance().getFilesDir(), DATA_FILE_NAME);
     Gson gson = new Gson();
 
     private Database() {

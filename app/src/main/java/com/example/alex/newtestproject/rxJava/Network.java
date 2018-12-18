@@ -1,35 +1,23 @@
 package com.example.alex.newtestproject.rxJava;
 
 import com.example.alex.newtestproject.rxJava.fragment.bean.HttpResult;
-import com.example.alex.newtestproject.rxJava.fragment.bean.LoginVo;
-import com.example.alex.newtestproject.rxJava.fragment.bean.StartPage;
 import com.example.alex.newtestproject.rxJava.net.FakeApi;
 import com.example.alex.newtestproject.rxJava.net.GankApi;
 import com.example.alex.newtestproject.rxJava.net.LaiDaiApi;
 import com.example.alex.newtestproject.rxJava.net.MineCustomConverterFactory;
 import com.example.alex.newtestproject.rxJava.net.ZhuangbiApi;
 import com.example.alex.newtestproject.rxJava.util.ObservableHelper;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.Result;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
-import rx.functions.Action1;
 import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Administrator on 2017/6/7.
@@ -39,7 +27,7 @@ public class Network {
     private static GankApi gankApi;
 
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
-    private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
+    private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJava2CallAdapterFactory.create();
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static FakeApi fakeApi;
     private LaiDaiApi laiDaiApi;
@@ -135,95 +123,9 @@ public class Network {
         return client;
     }
 
-    public Observable<LoginVo> loginWithLaiDaiApi(String account, String pwd) {
-        Map<String, String> map = new HashMap<>();
-        map.put("account", account);
-        map.put("pwd", pwd);
-        map.put("vcode", null);
-        map.put("imageId", null);
-        map.put("deviceToken", "AqLYEhdDw0r3iBIXRxFETntDJpZcyXgLhYKh87PfZf35");
-        return getLaiDaiApi().login(account, pwd, null, null, "AqLYEhdDw0r3iBIXRxFETntDJpZcyXgLhYKh87PfZf35");
-    }
 
-    public void loginWithLaiDaiApiByMapParams(Action0 action0, Subscriber<LoginVo> subscribe) {
-        // 注意,如果是@query传入,value不能传"",但是支持动态参数null; 如果是基本数据类型,建议传引用类,如int => Integer
-        Map<String, String> map = new HashMap<>();
-        map.put("account", "18515531883");
-        map.put("pwd", "123456");
-        map.put("vcode", "");
-        map.put("imageId", "");
-        map.put("deviceToken", "AqLYEhdDw0r3iBIXRxFETntDJpZcyXgLhYKh87PfZf35");
 
-        Network.getInstance().getLaiDaiApi().login2(map)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(action0)
-                .subscribe(subscribe);
-    }
 
-    /**
-     * 测试3号: 一种Rx完善的写法
-     *
-     * @param observer
-     */
-    public void getStartPage3(Subscriber<? super HttpResult<StartPage.ImageVo>> observer) {
-        Network.getInstance().getLaiDaiApi().getStartPage()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .first(new Func1<HttpResult<StartPage.ImageVo>, Boolean>() {
-                    @Override
-                    public Boolean call(HttpResult<StartPage.ImageVo> imageVoHttpResult) {
-                        return null;
-                    }
-                })
-                .doOnError(new Action1<Throwable>() {   // 当发生错误时
-                    @Override
-                    public void call(Throwable throwable) {
-                        /*
-                        mErroImageView.setVisibility(View.VISIBLE);
-                        mRecyclerView.setVisibility(View.GONE);
-                         */
-                    }
-                })
-                .doOnNext(new Action1<HttpResult<StartPage.ImageVo>>() {    // 下一步调用
-                    @Override
-                    public void call(HttpResult<StartPage.ImageVo> imageVoHttpResult) {
-                        /*
-                        mErroImageView.setVisibility(View.GONE);
-                        mRecyclerView.setVisibility(View.VISIBLE);
-                         */
-                    }
-                })
-                .doOnTerminate(new Action0() {  // 意外终止时调用
-                    @Override
-                    public void call() {
-                        /*
-                        mRefreshLayout.setRefreshing(false);
-                        mProgressBar.setVisibility(View.GONE);
-                         */
-                    }
-                })
-                .doOnSubscribe(new Action0() {
-                    @Override
-                    public void call() {
-
-                    }
-                })
-                .subscribe(observer);
-
-    }
-
-    public Observable<HttpResult<StartPage.ImageVo>> getStartPage() {
-        return getLaiDaiApi().getStartPage();
-    }
-
-    public Observable<String> getStartPage2() {
-        return getLaiDaiApi().getStartPage2();
-    }
-
-    public Observable<String> getTestApi() {
-        return getLaiDaiApi().getTestApi();
-    }
 
     public int requestTest() {
         try {
@@ -265,7 +167,7 @@ public class Network {
         public T call(HttpResult<T> httpResult) {
             if (httpResult.code != 1) {
                 ObservableHelper s;
-                //  throw new ApiException(httpResult.code);
+                //  throw new OldApiException(httpResult.code);
             }
             return httpResult.obj;
         }

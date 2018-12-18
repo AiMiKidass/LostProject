@@ -26,10 +26,6 @@ import com.example.alex.newtestproject.R;
 import com.example.alex.newtestproject.test.base.BaseFragment;
 import com.example.alex.newtestproject.utils.LogUtils;
 import com.example.alex.newtestproject.utils.PermissionUtils;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.qrcode.QRCodeReader;
 
 import org.angmarch.views.NiceSpinner;
 
@@ -392,34 +388,6 @@ public class Test1Fragment extends BaseFragment {
 
 
     private void test001() {
-        iv_qr.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View viewm) {
-                LogUtils.d("开始");
-
-                Bitmap obmp = ((BitmapDrawable) (iv_qr).getBackground()).getBitmap();
-                int width = obmp.getWidth();
-                int height = obmp.getHeight();
-                int[] data = new int[width * height];
-                obmp.getPixels(data, 0, width, 0, 0, width, height);
-                com.google.zxing.RGBLuminanceSource sourc2e = new com.google.zxing.RGBLuminanceSource(width, height, data);
-                BinaryBitmap bitmap1 = new BinaryBitmap(new HybridBinarizer(sourc2e));
-                QRCodeReader reader = new QRCodeReader();
-                Result re = null;
-                try {
-                    re = reader.decode(bitmap1);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (re == null) {
-                    showAlert(obmp);
-                } else {
-                    LogUtils.d("qrcode url=" + re.getText());
-                    showSelectAlert(obmp, re.getText());
-                }
-                return false;
-            }
-        });
     }
 
     private void showAlert(final Bitmap bitmap) {

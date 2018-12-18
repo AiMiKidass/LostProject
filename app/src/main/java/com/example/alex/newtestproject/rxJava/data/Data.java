@@ -2,7 +2,7 @@ package com.example.alex.newtestproject.rxJava.data;
 
 import android.support.annotation.IntDef;
 
-import com.example.alex.newtestproject.App;
+import com.example.alex.newtestproject.XApplication;
 import com.example.alex.newtestproject.R;
 import com.example.alex.newtestproject.rxJava.Network;
 import com.example.alex.newtestproject.rxJava.fragment.MapFragment;
@@ -96,7 +96,7 @@ public class Data {
                 dataTextResId = R.string.data_source_network;
                 break;
         }
-        return App.getInstance().getString(dataTextResId);
+        return XApplication.getInstance().getString(dataTextResId);
     }
 
     public void loadFromNetwork() {
