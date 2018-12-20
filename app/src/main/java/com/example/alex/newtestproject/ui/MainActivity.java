@@ -35,7 +35,7 @@ import com.example.alex.newtestproject.ui.activity.UploadAllActivity;
 import com.example.alex.newtestproject.utils.ActivityUtils;
 import com.example.alex.newtestproject.utils.DateUtils;
 import com.example.alex.newtestproject.utils.DocumentManagement;
-import com.example.alex.newtestproject.utils.Formatter;
+import com.example.alex.newtestproject.utils.DownloadUtil;
 import com.example.alex.newtestproject.utils.LogUtils;
 import com.example.alex.newtestproject.utils.OpenFileUtil;
 import com.example.alex.newtestproject.utils.SPUtils;
@@ -238,34 +238,57 @@ public class MainActivity extends BaseActivity {
         }
 
         // 是否已经存在的规则是: 文件名 + 文件名(1)/(2)等等
-        String tempFile = "sss.java";
+        String tempFileName = "sss.java";
         final String ext = "java";
         final String bfilename = "sss";
+        final String localPath = "/sd/" + tempFileName;
 
+        boolean contains = tempFileName.contains(bfilename);
+        contains = !contains;
 
         FilenameFilter filenameFilter = new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.endsWith(ext);
+                // 过滤出指定文件类型的
+                return name.endsWith(ext) && name.contains(bfilename);
             }
         };
-        // 遍历 检查相同文件名是否存在
-        File sssss = new File(tempFile);
-        if (sssss.exists()) {
 
-        }
+        // 路径
+        File localFile = new File("/sdcard/");
+        File parentFile = localFile.getParentFile();
+        File[] files = parentFile.listFiles(filenameFilter);
 
-        getXFileName(tempFile);
 
     }
 
     /**
-     * @param tempFile
-     * @return
+     * 重命名文件
+     * 规则: filename,filename(1),filename(2)...
      */
-    private String getXFileName(String tempFile) {
+    private String reNameFile(File file) {
+        String parentDirectory = file.getParent();
+        String name = file.getName();
 
+        // 只需要比对是否存在该路径该名称的文件即可,不需要遍历整个文件
+        int number = 0;
 
+        StringBuffer tempBuffer = new StringBuffer(name);
+        // 临时文件
+        File tempFile = new File(file.getPath());
+        while (true) {
+            // 如果文件不存在 表示可以采用这个名字
+            if (!tempFile.exists()) {
+                break;
+            } else {
+                number++;
+                // (number)
+                String tempFileName = (String.format("(%s)", number));
+                tempBuffer.insert(name.lastIndexOf("."), tempFileName);
+                tempFile = new File(parentDirectory + "/" + tempBuffer.toString());
+            }
+        }
+        return tempFile.getName();
     }
 
     /**
@@ -435,17 +458,13 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.btn_click})
     void onClick4() {
-        long aLong = Long.valueOf(inputNumber.getText().toString().trim());
-        String value = Formatter.formatFileSize(aLong);
-        LogUtils.d(value);
+        String downloadDirectoryPath = DownloadUtil.getDownloadUrl();
+        String filePath = downloadDirectoryPath + "/" + "123.png";
 
+        File file = new File(filePath);
+        String reNameFile = reNameFile(file);
+        reNameFile.toString();
 
-        String ssss = Formatter.formatFileSize(aLong);
-
-
-        aLong = 10000;
-        value = Formatter.formatFileSize(aLong);
-        LogUtils.d(value);
     }
 
     private void openAssignFolder(String path) {
